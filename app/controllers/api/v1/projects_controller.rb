@@ -6,15 +6,22 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def create
-    
+    @project = Project.new(project_params)
+    if @project.save
+      render json: @project
+    else
+      render json: {error: 'Not enough info to create project'}
+    end
   end
 
   def show
-
+    @project = Project.find(params[:id])
+    render json: @project
   end
 
   def destroy
-
+    @project = Project.find(params[:id])
+    @project.destroy 
   end
 
   private
