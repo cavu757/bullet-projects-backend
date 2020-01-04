@@ -1,2 +1,0 @@
-class BulletsController < ApplicationController
-end
