@@ -14,6 +14,6 @@ bullet_four = Bullet.create(project_id: 1, content: "Add a second event", date: 
 bullet_five = Bullet.create(project_id: 1, content: "One more task", date: DateTime.now, category: "task")
 bullet_six = Bullet.create(project_id: 1, content: "Final bullet is a note", date: DateTime.now, category: "note")
 
-project_two = Project.create(name: "Mady's Birthday", deadline: "2020-02-08")
+project_two = Project.create(name: "Mady Birthday", deadline: "2020-02-08")
 
 project_three = Project.create(name: "Overdue project", deadline: "2019-12-04")
