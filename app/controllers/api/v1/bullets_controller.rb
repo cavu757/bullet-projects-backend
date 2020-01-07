@@ -1,6 +1,6 @@
 class Api::V1::BulletsController < ApplicationController
 
-  before_action :set_project
+  before_action :set_project, only: [:index, :create, :show, :destroy]
 
   def index
     @bullets = @project.bullets
@@ -10,7 +10,7 @@ class Api::V1::BulletsController < ApplicationController
   def create
     @bullet = @project.bullets.new(bullet_params)
     if @bullet.save
-      render json: @bullet
+      render json: @project
     else
       render json: {error: 'Not enough info to create bullet'}
     end
@@ -24,6 +24,21 @@ class Api::V1::BulletsController < ApplicationController
   def destroy
     @bullet = Bullet.find(params[:id])
     @bullet.destroy
+  end
+
+  def all_events
+    @all_events = Bullet.all.find_all{|bullet| bullet.category == "event"}
+    render json: @all_events
+  end
+
+  def all_tasks
+    @all_tasks = Bullet.all.find_all{|bullet| bullet.category == "task"}
+    render json: @all_tasks
+  end
+
+  def all_notes
+    @all_notes = Bullet.all.find_all{|bullet| bullet.category == "note"}
+    render json: @all_notes
   end
 
   private

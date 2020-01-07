@@ -3,7 +3,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
     create_table :projects do |t|
       t.string :name
       t.text :description
-      t.datetime :deadline
+      t.date :deadline
 
       t.timestamps
     end

@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_01_04_174423) do
     t.string "content"
     t.string "category"
     t.boolean "priority"
-    t.datetime "date"
+    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_01_04_174423) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "deadline"
+    t.date "deadline"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

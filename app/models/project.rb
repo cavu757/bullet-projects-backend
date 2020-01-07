@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   validates :name, :deadline, presence: true
 
   def days_left
-    days_left = ((self.deadline - DateTime.now)/86400).round
+    days_left = (self.deadline - Date.today).round
     if days_left <= 0
       return "OVERDUE"
     else
