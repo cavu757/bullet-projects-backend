@@ -4,7 +4,7 @@ class CreateBullets < ActiveRecord::Migration[5.2]
       t.integer :project_id
       t.string :content
       t.string :category
-      t.boolean :priority
+      t.boolean :complete
       t.date :date
 
       t.timestamps

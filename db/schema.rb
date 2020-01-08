@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_01_04_174423) do
     t.integer "project_id"
     t.string "content"
     t.string "category"
-    t.boolean "priority"
+    t.boolean "complete"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
