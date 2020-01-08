@@ -27,7 +27,7 @@ class Api::V1::BulletsController < ApplicationController
   end
 
   def all_events
-    @all_events = Bullet.all.find_all{|bullet| bullet.category == "event"}
+    @all_events = Bullet.all.find_all{|bullet| bullet.category == "event" && bullet.date >= Date.today}
     render json: @all_events
   end
 
@@ -48,7 +48,7 @@ class Api::V1::BulletsController < ApplicationController
   end
 
   def bullet_params
-    params.require(:bullet).permit(:project_id, :content, :category, :priority, :date)
+    params.require(:bullet).permit(:project_id, :content, :category, :complete, :date)
   end
 
 end
