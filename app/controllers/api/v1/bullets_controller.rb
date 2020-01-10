@@ -24,6 +24,7 @@ class Api::V1::BulletsController < ApplicationController
   def destroy
     @bullet = Bullet.find(params[:id])
     @bullet.destroy
+    render json: @project
   end
 
   def all_events

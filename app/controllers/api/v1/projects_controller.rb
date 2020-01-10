@@ -20,8 +20,14 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def destroy
+    @projects = Project.all
     @project = Project.find(params[:id])
     @project.destroy
+    render json: @projects
+  end
+
+  def update
+    
   end
 
   private
