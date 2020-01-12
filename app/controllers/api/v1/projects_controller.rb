@@ -27,7 +27,9 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def update
-    
+    @project = Project.find(params[:id])
+    @project.update(name: project_params[:name], description: project_params[:description], deadline: project_params[:deadline])
+    render json: @project
   end
 
   private

@@ -27,6 +27,13 @@ class Api::V1::BulletsController < ApplicationController
     render json: @project
   end
 
+  def update
+    @bullet = Bullet.find(params[:id])
+    @bullet.update(content: bullet_params[:content], category: bullet_params[:category], complete: bullet_params[:complete], date: bullet_params[:date])
+    @project = Project.find(params[:pId])
+    render json: @project
+  end
+
   def all_events
     @all_events = Bullet.all.find_all{|bullet| bullet.category == "event" && bullet.date >= Date.today}
     render json: @all_events
