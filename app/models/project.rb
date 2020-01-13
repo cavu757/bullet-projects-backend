@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  has_many :bullets
+  has_many :bullets, dependent: :destroy
   validates :name, :deadline, presence: true
 
   def days_left
