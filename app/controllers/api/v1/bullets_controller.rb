@@ -12,7 +12,7 @@ class Api::V1::BulletsController < ApplicationController
     if @bullet.save
       render json: @project
     else
-      render json: {error: 'Not enough info to create bullet'}
+      render json: {error: 'Unable to create bullet.  Enter required info to create bullet'}
     end
   end
 

@@ -10,7 +10,7 @@ class Api::V1::ProjectsController < ApplicationController
     if @project.save
       render json: @project
     else
-      render json: {error: 'Not enough info to create project'}
+      render json: {error: 'Unable to create project. Enter required info to create project'}
     end
   end
 
